@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a2540;
+
+  /* Brand Palette: Professional Trust Blue */
+  --compli-blue-50: #f0f7ff;
+  --compli-blue-100: #e0effe;
+  --compli-blue-600: #1c64f2;
+  --compli-blue-700: #1a56db;
+  --compli-blue-900: #0a2540;
+  --compli-gray-50: #f9fafb;
+  --compli-gray-100: #f3f4f6;
+  --compli-gray-600: #4b5563;
+
+  --primary: var(--compli-blue-600);
+  --primary-dark: var(--compli-blue-900);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-compli-blue-50: var(--compli-blue-50);
+  --color-compli-blue-100: var(--compli-blue-100);
+  --color-compli-blue-600: var(--compli-blue-600);
+  --color-compli-blue-700: var(--compli-blue-700);
+  --color-compli-blue-900: var(--compli-blue-900);
+
+  --color-compli-gray-50: var(--compli-gray-50);
+  --color-compli-gray-100: var(--compli-gray-100);
+  --color-compli-gray-600: var(--compli-gray-600);
+
+  --font-sans: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-label {
+  @apply font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-compli-blue-600;
+}
