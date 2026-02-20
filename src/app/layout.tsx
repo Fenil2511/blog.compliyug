@@ -18,6 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CompliYUG Intelligence Hub | DPDP Act 2023 Compliance",
   description: "Leading RegTech for DPDP Act 2023 compliance. Advanced insights on data breach reporting, Rule 7(2)(b), and strategic governance for the Digital YUG.",
+  icons: {
+    icon: "https://ik.imagekit.io/ib9n0o3ps/only%20logo.png?updatedAt=1770716238806",
+    apple: "https://ik.imagekit.io/ib9n0o3ps/only%20logo.png?updatedAt=1770716238806",
+  },
 };
 
 export default function RootLayout({
