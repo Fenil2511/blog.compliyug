@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { ARTICLES, Article, CATEGORIES, SECTORS, Category, Sector } from '@/data/blogData';
 import FormattedDate from '@/components/FormattedDate';
 import { Clock, ArrowRight, Star, Filter } from 'lucide-react';
@@ -16,8 +17,20 @@ const SECTOR_COLORS: Record<Sector, string> = {
 };
 
 const BlogGrid = () => {
+    const searchParams = useSearchParams();
     const [activeCategory, setActiveCategory] = useState<'All' | Category>('All');
     const [activeSector, setActiveSector] = useState<'All' | Sector>('All');
+
+    // Sync from URL query param on mount / URL change
+    useEffect(() => {
+        const cat = searchParams.get('category');
+        if (cat && (CATEGORIES as string[]).includes(cat)) {
+            setActiveCategory(cat as Category);
+            setActiveSector('All');
+        } else {
+            setActiveCategory('All');
+        }
+    }, [searchParams]);
 
     const getCategoryCount = (cat: 'All' | Category) => {
         if (cat === 'All') return ARTICLES.length;

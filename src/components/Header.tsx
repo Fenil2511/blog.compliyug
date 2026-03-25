@@ -38,9 +38,9 @@ const Header = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="/category/dpdp-core" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">DPDP Core</Link>
-                    <Link href="/category/sectors" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">Sectors</Link>
-                    <Link href="/category/tools" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">Tools</Link>
+                    <Link href="/?category=DPDP+Core" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">DPDP Core</Link>
+                    <Link href="/?category=Sectors" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">Sectors</Link>
+                    <Link href="https://www.compliyug.com/tools" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-compli-gray-600 hover:text-compli-blue-600 transition-colors">Tools</Link>
                     <div className="h-4 w-px bg-compli-gray-100 mx-2" />
                     <button
                         onClick={() => setIsSearchOpen(true)}
@@ -80,9 +80,9 @@ const Header = () => {
                         className="md:hidden bg-white border-t border-compli-gray-100 p-4 overflow-hidden"
                     >
                         <nav className="flex flex-col gap-4">
-                            <Link href="/category/dpdp-core" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">DPDP Core</Link>
-                            <Link href="/category/sectors" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">Sectors</Link>
-                            <Link href="/category/tools" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">Tools</Link>
+                            <Link href="/?category=DPDP+Core" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">DPDP Core</Link>
+                            <Link href="/?category=Sectors" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">Sectors</Link>
+                            <Link href="https://www.compliyug.com/tools" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2">Tools</Link>
                             <Link href="https://linktr.ee/compliyug" target="_blank" className="bg-compli-blue-600 text-white px-5 py-3 text-center font-bold mt-4 rounded">
                                 Partner with Experts
                             </Link>

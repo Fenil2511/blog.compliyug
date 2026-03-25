@@ -29,19 +29,29 @@ export const metadata: Metadata = {
   description:
     "India's leading RegTech intelligence hub for DPDP Act 2023 compliance. Expert insights on data breach reporting, Rule 7(2)(b), sectoral governance, and strategic automation for the Digital YUG.",
   keywords: [
-    "DPDP Act 2023",
-    "data protection compliance India",
-    "Digital Personal Data Protection",
-    "data breach reporting",
-    "Rule 7(2)(b)",
-    "compliance automation",
-    "CISO India",
-    "cybersecurity India",
-    "RegTech India",
-    "CompliYUG",
-    "BreachBlitz",
-    "data fiduciary",
-    "DPB India",
+    // Brand
+    "CompliYUG", "CompliYUG blog", "CompliYUG intelligence hub",
+    // Product
+    "BreachBlitz", "DPDP compliance automation", "data breach automation India",
+    // Act / Regulation
+    "DPDP Act 2023", "Digital Personal Data Protection Act", "DPDP Rules 2025",
+    "data protection law India", "India privacy law 2023", "data fiduciary India",
+    "data processor India", "Data Protection Board India",
+    // Compliance intent
+    "Rule 7(2)(b)", "72 hour breach reporting", "data breach notification India",
+    "vendor compliance DPDP", "DPDP compliance checklist",
+    "data processing agreement India", "DPA India",
+    // Sector
+    "DPDP banking compliance", "BFSI data protection",
+    "healthcare data privacy India", "EdTech DPDP compliance",
+    "e-commerce consent management India",
+    // Role-based intent
+    "CISO India", "compliance officer India", "DPO India",
+    "RegTech India", "cybersecurity compliance India",
+    // Penalty intent
+    "₹250 crore DPDP penalty", "DPDP penalty for banks",
+    // Technical
+    "log retention DPDP", "data erasure DPDP", "data principal rights India",
   ],
   authors: [{ name: "CompliYUG Research", url: SITE_URL }],
   creator: "CompliYUG",
@@ -114,6 +124,37 @@ const websiteJsonLd = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CompliYUG",
+  alternateName: "CompliYUG Intelligence Hub",
+  url: "https://www.compliyug.com",
+  logo: {
+    "@type": "ImageObject",
+    url: LOGO_URL,
+    width: 512,
+    height: 512,
+  },
+  description:
+    "India's leading RegTech company providing DPDP Act 2023 compliance automation, BreachBlitz breach reporting engine, and sectoral governance solutions for CISOs and data fiduciaries.",
+  sameAs: [
+    "https://linktr.ee/compliyug",
+    "https://blog.compliyug.com",
+  ],
+  knowsAbout: [
+    "DPDP Act 2023",
+    "Data Protection Compliance",
+    "Cybersecurity Governance",
+    "RegTech",
+    "Data Breach Reporting",
+  ],
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -126,6 +167,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <link rel="canonical" href={SITE_URL} />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col`}
