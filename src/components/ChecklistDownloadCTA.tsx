@@ -35,11 +35,12 @@ const ChecklistDownloadCTA = ({
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    username: name.trim(),
                     email: email.trim(),
+                    username: name.trim(),
+                    name: name.trim(),
                     articleTitle: articleTitle,
                     articleLink: articleLink,
-                    documentRequested: documentTitle
+                    documentTitle: documentTitle
                 }),
             });
 
