@@ -7,6 +7,8 @@ interface ChecklistDownloadCTAProps {
     webhookUrl: string;
     label?: string;
     documentTitle?: string;
+    articleTitle?: string;
+    articleLink?: string;
 }
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
@@ -15,6 +17,8 @@ const ChecklistDownloadCTA = ({
     webhookUrl,
     label = 'Download Free Checklist',
     documentTitle = 'Vendor Compliance Checklist',
+    articleTitle = '',
+    articleLink = '',
 }: ChecklistDownloadCTAProps) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -30,7 +34,13 @@ const ChecklistDownloadCTA = ({
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: name.trim(), email: email.trim() }),
+                body: JSON.stringify({
+                    username: name.trim(),
+                    email: email.trim(),
+                    articleTitle: articleTitle,
+                    articleLink: articleLink,
+                    documentRequested: documentTitle
+                }),
             });
 
             const data = await response.json();

@@ -159,6 +159,8 @@ const ArticlePageClient = ({ article, relatedArticles }: Props) => {
                                 webhookUrl={article.downloadCTA.webhookUrl}
                                 label={article.downloadCTA.label}
                                 documentTitle={article.downloadCTA.documentTitle}
+                                articleTitle={article.title}
+                                articleLink={typeof window !== 'undefined' ? window.location.href : ''}
                             />
                         )}
 
