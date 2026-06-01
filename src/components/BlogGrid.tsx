@@ -13,6 +13,7 @@ const SECTOR_COLORS: Record<Sector, string> = {
     BFSI: 'text-violet-700 bg-violet-50 border-violet-200',
     'Ed-Tech': 'text-amber-700 bg-amber-50 border-amber-200',
     'E-commerce': 'text-rose-700 bg-rose-50 border-rose-200',
+    Startups: 'text-cyan-700 bg-cyan-50 border-cyan-200',
     None: 'hidden',
 };
 
