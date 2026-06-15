@@ -14,6 +14,7 @@ const SECTOR_COLORS: Record<Sector, string> = {
     'Ed-Tech': 'text-amber-700 bg-amber-50 border-amber-200',
     'E-commerce': 'text-rose-700 bg-rose-50 border-rose-200',
     Startups: 'text-cyan-700 bg-cyan-50 border-cyan-200',
+    'Cross-sector': 'text-indigo-700 bg-indigo-50 border-indigo-200',
     None: 'hidden',
 };
 

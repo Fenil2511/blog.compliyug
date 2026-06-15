@@ -1,5 +1,5 @@
 export type Category = 'DPDP Core' | 'Sectors' | 'Tools' | 'News';
-export type Sector = 'Healthcare' | 'BFSI' | 'Ed-Tech' | 'E-commerce' | 'Startups' | 'None';
+export type Sector = 'Healthcare' | 'BFSI' | 'Ed-Tech' | 'E-commerce' | 'Startups' | 'Cross-sector' | 'None';
 
 export interface Article {
     id: string;
@@ -31,7 +31,7 @@ export interface Article {
 }
 
 export const CATEGORIES: Category[] = ['DPDP Core', 'Sectors', 'Tools', 'News'];
-export const SECTORS: Sector[] = ['Healthcare', 'BFSI', 'Ed-Tech', 'E-commerce', 'Startups'];
+export const SECTORS: Sector[] = ['Healthcare', 'BFSI', 'Ed-Tech', 'E-commerce', 'Startups', 'Cross-sector'];
 
 export const ARTICLES: Article[] = [
     {
