@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { ARTICLES, Article, CATEGORIES, SECTORS, Category, Sector } from '@/data/blogData';
 import FormattedDate from '@/components/FormattedDate';
@@ -178,10 +179,13 @@ const BlogGrid = () => {
                                 >
                                     {/* Image */}
                                     <div className="relative aspect-[16/10] overflow-hidden">
-                                        <img
+                                        <Image
                                             src={article.image}
                                             alt={article.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            priority={idx < 3}
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
                                         {/* Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-compli-blue-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

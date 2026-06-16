@@ -20,6 +20,7 @@ export interface Article {
         webhookUrl: string;
     };
     keyTakeaways: string[];
+    faqs?: { question: string; answer: string }[];
     content: {
         intro: string;
         sections: {
@@ -236,6 +237,28 @@ export const ARTICLES: Article[] = [
             'If a vendor stores data outside India, the Bank must obtain data flow maps and residency architecture documents to ensure no unauthorized cross-border transfer occurs.',
             'Maximum DPDP penalty for security failures is ₹250 crore — making vendor risk management a Board-level priority, not just a legal formality.',
             'Access Control Matrices and ISO/IEC 27001/27701 certifications are the minimum acceptable technical evidence from any vendor handling sensitive banking data.',
+        ],
+        faqs: [
+            {
+                question: 'What is a Data Processing Agreement (DPA) under DPDP Act 2023?',
+                answer: 'A Data Processing Agreement (DPA) is a legally binding contract mandated under the DPDP Act 2023 between a Data Fiduciary (the Bank) and a Data Processor (vendor). It governs how the vendor processes personal data, the categories of data involved, permissible purposes, and obligations including "reasonable security safeguards". Without a valid DPA, a bank cannot legally engage a vendor for data processing.',
+            },
+            {
+                question: 'What is the penalty for data breach under DPDP Act 2023?',
+                answer: 'The DPDP Act 2023 prescribes a maximum penalty of ₹250 crore for failure to implement adequate security safeguards that result in a personal data breach. Importantly, under Section 8(1), the Bank (as Data Fiduciary) remains fully liable for breaches caused by its third-party vendors (Data Processors).',
+            },
+            {
+                question: 'What does Rule 8(3) of the DPDP Rules require?',
+                answer: 'Rule 8(3) requires Data Processors (including cloud service providers) to retain personal data, associated traffic data, and processing logs for a minimum of one year from the date of processing. This retention is mandatory to enable forensic investigation of unauthorized access events. Banks must contractually and technically enforce this with all vendors.',
+            },
+            {
+                question: 'How many hours does a bank have to report a data breach under DPDP Act 2023?',
+                answer: 'Banks must notify the Data Protection Board (DPB) within 72 hours of becoming aware of a personal data breach. This 72-hour window is absolute. If a vendor breach occurs, the bank must receive notification from the vendor within 12-24 hours so it can meet its own DPB reporting deadline.',
+            },
+            {
+                question: 'What documents must a bank obtain from vendors under DPDP Act 2023?',
+                answer: 'Banks must obtain: (1) Valid Data Processing Agreement, (2) Contractual security safeguard clauses, (3) Technical security evidence (ISO 27001, SOC 2), (4) Access control documentation, (5) Data backup and continuity plans, (6) 1-year log retention proof, (7) Incident management and breach notification SLAs, and (8) Data erasure confirmations and destruction certificates.',
+            },
         ],
         content: {
             intro: 'Under Section 8(1) of the DPDP Act, 2023, the Bank — as a Data Fiduciary — remains fully and non-delegably responsible for compliance with the Act in respect of any processing undertaken on its behalf by a third-party vendor (Data Processor). This is not a technicality. It means that if your fintech vendor, cloud hosting partner, or analytics processor breaches the DPDP Act, the ₹250 crore penalty lands on the Bank\'s balance sheet, not the vendor\'s. This checklist is your operational shield.',

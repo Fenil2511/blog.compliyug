@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Article } from '@/data/blogData';
 import FormattedDate from '@/components/FormattedDate';
 import { Clock, Calendar, ChevronRight, Share2, Printer, CheckCircle2, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
@@ -35,10 +36,13 @@ const ArticlePageClient = ({ article, relatedArticles }: Props) => {
         <article className="bg-white min-h-screen">
             {/* Hero Image – Full Width */}
             <div className="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
-                <img
+                <Image
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-compli-blue-900/80 via-compli-blue-900/30 to-transparent" />
                 {/* Breadcrumb on image */}
@@ -123,7 +127,7 @@ const ArticlePageClient = ({ article, relatedArticles }: Props) => {
                                 <ShieldCheck size={18} className="text-compli-blue-600" />
                                 <h2 className="text-xs font-bold uppercase tracking-widest text-compli-blue-600">Executive Summary</h2>
                             </div>
-                            <p className="text-compli-blue-900 text-base leading-relaxed font-medium">
+                            <p data-speakable="summary" className="text-compli-blue-900 text-base leading-relaxed font-medium">
                                 {article.summary}
                             </p>
                         </div>
@@ -183,6 +187,24 @@ const ArticlePageClient = ({ article, relatedArticles }: Props) => {
                             ))}
                         </div>
 
+                        {/* FAQ Section — visible Q&A, mirrors the FAQPage JSON-LD for SEO/AEO */}
+                        {article.faqs && article.faqs.length > 0 && (
+                            <div className="bg-white border border-compli-gray-100 rounded-xl p-8 mt-14 shadow-sm">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <CheckCircle2 size={18} className="text-compli-blue-600" />
+                                    <h2 className="text-xs font-bold uppercase tracking-widest text-compli-blue-900">Frequently Asked Questions</h2>
+                                </div>
+                                <div className="space-y-6">
+                                    {article.faqs.map((faq, idx) => (
+                                        <div key={idx} className="border-b border-compli-gray-100 last:border-0 pb-6 last:pb-0">
+                                            <h3 className="text-base font-bold text-compli-blue-900 mb-2 leading-snug">{faq.question}</h3>
+                                            <p className="text-sm text-compli-gray-600 leading-relaxed">{faq.answer}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Conclusion */}
                         <div className="bg-compli-blue-900 text-white rounded-xl p-10 mt-14 relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-compli-blue-600 opacity-20 blur-3xl rounded-full -mr-10 -mt-10" />
@@ -231,11 +253,13 @@ const ArticlePageClient = ({ article, relatedArticles }: Props) => {
                                             href={`/article/${rel.slug}`}
                                             className="group flex flex-col bg-white border border-compli-gray-100 rounded-xl overflow-hidden hover:shadow-lg hover:border-compli-blue-100 transition-all"
                                         >
-                                            <div className="aspect-[16/9] overflow-hidden">
-                                                <img
+                                            <div className="relative aspect-[16/9] overflow-hidden">
+                                                <Image
                                                     src={rel.image}
                                                     alt={rel.title}
-                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                                                 />
                                             </div>
                                             <div className="p-5">

@@ -56,6 +56,14 @@ export const metadata: Metadata = {
   authors: [{ name: "CompliYUG Research", url: SITE_URL }],
   creator: "CompliYUG",
   publisher: "CompliYUG Operations",
+  // Paste verification codes here after creating Google Search Console / Bing Webmaster Tools
+  // properties for blog.compliyug.com (see setup steps shared separately). Leave empty until then.
+  verification: {
+    google: "eilnhEV6ym1imh9Amc-JMkpMMlg61-RA3fGZQwYNG2Q",
+    other: {
+      "msvalidate.01": "FBA377F31D16084F58A1C051C0D63C5D",
+    },
+  },
   robots: {
     index: true,
     follow: true,
